@@ -9,6 +9,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   ContactHelper helper = ContactHelper();
 
+  List<Contact> contacts = List();
+
+  @override
+  void initState() {
+    super.initState();
+
+    helper.getAllContacts().then((list) {
+      setState(() {
+        contacts = list;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +36,10 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.add),
         backgroundColor: Colors.red[300],
       ),
+      body: ListView.builder(
+          padding: EdgeInsets.all(10.0),
+          itemCount: contacts.length,
+          itemBuilder: (context, index) {}),
     );
   }
 }
