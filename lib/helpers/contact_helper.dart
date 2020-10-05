@@ -94,6 +94,8 @@ class Contact {
   String phone;
   String img; //contem o endereço da imagem armazenada
 
+  Contact();
+
   Contact.fromMap(Map map) {
     id = map[idColumn];
     name = map[nameColumn];
@@ -117,7 +119,6 @@ class Contact {
 
   @override
   String toString() {
-    // TODO: implement toString
     return "Contact(id: $id, name: $name, email: $email, phone: $phone, img: $img)";
   }
 }
